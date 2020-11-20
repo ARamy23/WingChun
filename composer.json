@@ -1,0 +1,6 @@
+{
+    "require": {
+        "tymon/jwt-auth": "^1.0",
+        "rinvex/laravel-bookings": "^4.1"
+    }
+}

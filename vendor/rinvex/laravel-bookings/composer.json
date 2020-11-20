@@ -1,0 +1,88 @@
+{
+    "name": "rinvex/laravel-bookings",
+    "description": "Rinvex Bookings is a generic resource booking system for Laravel, with the required tools to run your SAAS like services efficiently. It has a simple architecture, with powerful underlying to afford solid platform for your business.",
+    "type": "library",
+    "keywords": [
+        "cost",
+        "usage",
+        "rinvex",
+        "booking",
+        "resource",
+        "schedules",
+        "database",
+        "laravel",
+        "price",
+        "rates"
+    ],
+    "license": "MIT",
+    "homepage": "https://rinvex.com",
+    "support": {
+        "email": "help@rinvex.com",
+        "issues": "https://github.com/rinvex/laravel-bookings/issues",
+        "source": "https://github.com/rinvex/laravel-bookings",
+        "docs": "https://github.com/rinvex/laravel-bookings/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "Rinvex LLC",
+            "homepage": "https://rinvex.com",
+            "email": "help@rinvex.com"
+        },
+        {
+            "name": "Abdelrahman Omran",
+            "homepage": "https://omranic.com",
+            "email": "me@omranic.com",
+            "role": "Project Lead"
+        },
+        {
+            "name": "The Generous Laravel Community",
+            "homepage": "https://github.com/rinvex/laravel-bookings/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.4.0",
+        "illuminate/console": "^7.0.0",
+        "illuminate/database": "^7.0.0",
+        "illuminate/support": "^7.0.0",
+        "rinvex/laravel-support": "^4.0.0",
+        "spatie/eloquent-sortable": "^3.7.0",
+        "spatie/laravel-schemaless-attributes": "^1.7.0",
+        "spatie/laravel-sluggable": "^2.2.0",
+        "spatie/laravel-translatable": "^4.2.0"
+    },
+    "require-dev": {
+        "codedungeon/phpunit-result-printer": "^0.27.0",
+        "illuminate/container": "^7.0.0",
+        "phpunit/phpunit": "^9.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "Rinvex\\Bookings\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rinvex\\Bookings\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rinvex\\Bookings\\Providers\\BookingsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
