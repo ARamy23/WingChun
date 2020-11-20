@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SomeoneCancelledHisSession;
 use App\Exceptions\CancelSessionInSameDayException;
 use App\Exceptions\NoMoreSlotsToBookException;
 use App\Exceptions\SurpassedAllowedExcusesException;
@@ -26,6 +27,7 @@ class Booker
         self::makeSureSessionIsCancellable($sessionToCancel, $user);
         self::handleExcuses($user, $sessionToCancel);
         $sessionToCancel->attendees()->detach($user);
+        event(new SomeoneCancelledHisSession($sessionToCancel, $user));
     }
 
     private static function makeSureSessionIsCancellable(Session $session, User $user)

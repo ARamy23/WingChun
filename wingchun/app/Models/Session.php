@@ -13,4 +13,9 @@ class Session extends Model
     {
         return $this->belongsToMany(User::class, 'session_user')->withTimestamps();
     }
+
+    public function day()
+    {
+        return $this->belongsTo(Day::class);
+    }
 }

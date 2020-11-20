@@ -27,6 +27,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        require base_path('routes/events.php');
     }
 }
