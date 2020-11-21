@@ -116,6 +116,9 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator 2" />
       <path value="$PROJECT_DIR$/vendor/spatie/test-time" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

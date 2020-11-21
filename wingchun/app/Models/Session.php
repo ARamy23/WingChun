@@ -11,11 +11,18 @@ class Session extends Model
 
     public function attendees()
     {
-        return $this->belongsToMany(User::class, 'session_user')->withTimestamps();
+        return $this->belongsToMany(User::class, 'session_user')
+            ->withTimestamps()
+            ->withPivot('attendance_status');
     }
 
     public function day()
     {
         return $this->belongsTo(Day::class);
+    }
+
+    public function bookingURI(): String
+    {
+        return "/api/sessions/$this->id/book";
     }
 }

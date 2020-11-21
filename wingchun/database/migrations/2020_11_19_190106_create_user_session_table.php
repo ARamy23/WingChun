@@ -16,6 +16,7 @@ class CreateUserSessionTable extends Migration
         Schema::create('session_user', function (Blueprint $table) {
             $table->id();
             $table->unique(['user_id', 'session_id']);
+            $table->enum('attendance_status', ['booked', 'cancelled', 'didnt_attend', 'attended'])->default('booked');
             $table->timestamps();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('session_id')->constrained()->cascadeOnDelete();

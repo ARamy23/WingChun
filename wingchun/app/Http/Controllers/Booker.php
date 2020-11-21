@@ -12,10 +12,16 @@ use Carbon\Carbon;
 
 class Booker
 {
+    // Attendance Statuses = ['booked', 'cancelled', 'didnt_attend', 'attended']);
 
     static public function book(Session $sessionToBook, User $user) {
         self::makeSureSessionIsBookable($sessionToBook, $user);
-        $sessionToBook->attendees()->attach($user);
+        $alreadyBookingUserPivot = $sessionToBook->attendees()->find($user->id);
+        if ($alreadyBookingUserPivot) {
+            $alreadyBookingUserPivot->pivot->attendance_status = 'booked';
+            return;
+        }
+        $sessionToBook->attendees()->attach($user, ['attendance_status' => 'booked']);
     }
 
     private static function makeSureSessionIsBookable(Session $session, User $user)
@@ -26,7 +32,7 @@ class Booker
     static public function cancel(Session $sessionToCancel, User $user) {
         self::makeSureSessionIsCancellable($sessionToCancel, $user);
         self::handleExcuses($user, $sessionToCancel);
-        $sessionToCancel->attendees()->detach($user);
+        $sessionToCancel->attendees()->find($user->id)->pivot->attendance_status = 'cancelled';
         event(new SomeoneCancelledHisSession($sessionToCancel, $user));
     }
 
